@@ -29,6 +29,9 @@
 function BubbleSort(array $container)
 {
     $count = count($container);
+    if(!$count){
+        return [];
+    }
     for ($j = 1; $j < $count; $j++) {
         for ($i = 0; $i < $count - $j; $i++) {
             if ($container[$i] > $container[$i + 1]) {
