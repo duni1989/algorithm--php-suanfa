@@ -90,13 +90,13 @@ function selectionSort(array $arr = [])
     }
 
     for ($i = 0; $i < count($arr) - 1; $i++) {
-        $maxIndex = $i;
+        $minIndex = $i;
         for ($j = $i + 1; $j < count($arr); $j++){
-            $maxIndex = $arr[$maxIndex] < $arr[$j] ? $maxIndex : $j;
+            $minIndex = $arr[$minIndex] < $arr[$j] ? $minIndex : $j;
         }
         $temp = $arr[$i];
         $arr[$i] = $arr[$maxIndex];
-        $arr[$maxIndex] = $temp;
+        $arr[$minIndex] = $temp;
     }
 
     return $arr;
