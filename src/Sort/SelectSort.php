@@ -70,3 +70,43 @@ var_dump(SelectSort([3, 12, 42, 1, 24, 5, 346, 7]));
   int(346)
 }
  */
+
+
+/**====================================================**/
+
+
+
+/**
+ * 区别于冒泡排序：选择排序存在一个明显问题就是它的不稳定性（当数列包含多个相等的元素时，选择排序有可能打乱他们的原有顺序）
+ */
+
+function selectionSort(array $arr = [])
+{
+    if (empty($arr)) {
+        return [];
+    }
+    if (!is_array($arr)) {
+        return [];
+    }
+
+    for ($i = 0; $i < count($arr) - 1; $i++) {
+        $maxIndex = $i;
+        for ($j = $i + 1; $j < count($arr); $j++){
+            $maxIndex = $arr[$maxIndex] < $arr[$j] ? $maxIndex : $j;
+        }
+        $temp = $arr[$i];
+        $arr[$i] = $arr[$maxIndex];
+        $arr[$maxIndex] = $temp;
+    }
+
+    return $arr;
+}
+
+
+$arr = [3, 4, 2, 1, 5, 6, 7, 8, 30, 50, 1,33, 24, 5,-4, 7, 0];
+$result = selectionSort($arr);
+print_r($result);exit;
+
+
+
+
